@@ -8,6 +8,8 @@
   you are also welcome to write more than the given functions.
 */
 var numberOfSquares = 10;
+var foo = 0;
+var boo = [foo - 1];
 
 $(document).ready(onReady);
 
@@ -16,6 +18,7 @@ function onReady(){
   //click listener to button:
   $('.change-highlight').on('click', highlightASquare)
 
+
   //call to put starting squares on DOM
   appendSquaresToDom(numberOfSquares);
 }
@@ -23,7 +26,18 @@ function onReady(){
 function highlightASquare(){
   //This variable stores an array of the elements with the 'square' class
   var arrayOfSquares = $('.square');
+  // adds highligh to box
+$(arrayOfSquares[foo]).addClass('highlight');
+foo++;
+// removes highlight from box
+$(arrayOfSquares[boo]).removeClass('highlight')
+boo++;
 
+// create something that brings highlight back to first box after the last one
+if ( foo > numberOfSquares){
+    foo = 0;
+    boo = -1;
+  }
 }
 
 
